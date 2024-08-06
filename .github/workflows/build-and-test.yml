@@ -1,3 +1,4 @@
+#test
 name: Build_and_Test
 
 on:
@@ -33,6 +34,8 @@ jobs:
 
       - name: Push Docker image
         run: docker push haldekhiel/devopsproject:latest
+
+
   # test-secrets:
   #   runs-on: ubuntu-latest
 
