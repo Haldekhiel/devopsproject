@@ -17,7 +17,7 @@ real_estates = {
     2: RealEstate(id=2, title="Commercial Building in Olaya", price=3000000, area=520, property_type="Commercial",latitude=24.7123, longitude=46.7890),
     3: RealEstate(id=3, title="Agricultural Land in Wadi Hanifah", price=800000, area=2000, property_type="Agricultural",latitude=24.5678, longitude=46.4321),
 }
-
+#test
 
 @app.get("/real_estates/")  
 def get_real_estates():
