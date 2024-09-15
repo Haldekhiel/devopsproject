@@ -19,6 +19,10 @@ real_estates = {
     3: RealEstate(id=3, title="Agricultural Land in Wadi Hanifah", price=800000, area=2000, property_type="Agricultural",latitude=24.5678, longitude=46.4321),
 }
 
+
+@app.get("/")
+def read_root():
+    return {"realestate": "connected"}
 @app.get("/real_estates/")
 def get_real_estates():
     return list(real_estates.values())

@@ -15,6 +15,10 @@ investments = {
     # ... other investment types
 }
 
+@app.get("/")
+def read_root():
+    return {"invetment": "connected"}
+
 @app.get("/investments/")
 def get_investments():
     return investments.values()
