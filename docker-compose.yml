@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  realestate:
+    build: ./realestate
+    
+    ports:
+      - "8001:8000"
+
+  invesment:
+    build: ./invesment
+    
+    ports:
+      - "8002:8000"
+ 

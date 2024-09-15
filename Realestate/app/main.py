@@ -8,8 +8,8 @@ class RealEstate(BaseModel):
     id: int
     title: str
     price: float
-    area: float 
-    property_type: str 
+    area: float
+    property_type: str
     latitude: float
     longitude: float
 
@@ -19,18 +19,18 @@ real_estates = {
     3: RealEstate(id=3, title="Agricultural Land in Wadi Hanifah", price=800000, area=2000, property_type="Agricultural",latitude=24.5678, longitude=46.4321),
 }
 
-@app.get("/real_estates/")  
+@app.get("/real_estates/")
 def get_real_estates():
     return list(real_estates.values())
 
-@app.get("/real_estates/{real_estate_id}")  
+@app.get("/real_estates/{real_estate_id}")
 def get_real_estate(real_estate_id: int):
     real_estate = real_estates.get(real_estate_id)
     if real_estate is None:
         raise HTTPException(status_code=404, detail="Real estate not found")
     return real_estate
 
-@app.post("/real_estates/")  
+@app.post("/real_estates/")
 def create_real_estate(real_estate: RealEstate):
     new_id = max(real_estates.keys()) + 1
     real_estate.id = new_id
