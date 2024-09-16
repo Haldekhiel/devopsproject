@@ -1,15 +1,15 @@
 version: '3.8'
 
 services:
+  investment:
+    build: ./investment
+    
+    ports:
+      - "8001:8000"
   realestate:
     build: ./realestate
     
     ports:
       - "8000:8000"
 
-  investment:
-    build: ./investment
-    
-    ports:
-      - "8001:8000"
  
