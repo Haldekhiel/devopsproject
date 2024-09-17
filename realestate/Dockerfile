@@ -7,13 +7,15 @@ WORKDIR /app
 # Copy the requirements file into the container
 COPY requirements.txt requirements.txt
 
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade pip \
+&& pip install --no-cache-dir -r requirements.txt
+
 # Copy the rest of the application code into the container
 COPY . .
-RUN python3 -m venv venv
-# Install dependencies
-RUN . /app/venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
 
+# Expose the port the app will run on
 EXPOSE 8000
 
 # Command to run the app
-CMD ["/app/venv/bin/uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["/usr/local/bin/uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
