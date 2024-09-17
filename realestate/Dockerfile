@@ -1,5 +1,5 @@
 # Use an official Python image as a base
-FROM python:3.12.4
+FROM python:3.12-slim
 
 # Set the working directory in the container
 WORKDIR /app
@@ -8,7 +8,8 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container
 COPY . .
