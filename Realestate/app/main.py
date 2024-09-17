@@ -31,7 +31,7 @@ def get_investment(name: str):
     return investment
 
 @app.post("/investments/")
-def create_investment(investment: Investment):
+def create_investment(investment: RealEstate):
     investments[investment.name] = investment
     return {"message": "Investment created successfully"}
 
